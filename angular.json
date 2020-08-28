@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "SmartsoftTestFrontEnd"
+    }
+  },
+  "defaultProject": "SmartsoftTestFrontEnd",
+  "cli": {
+    "analytics": false
+  }
 }

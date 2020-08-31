@@ -1,0 +1,28 @@
+<kendo-grid
+    [data]="gridData"
+    (edit)="editHandler($event)"
+    (cancel)="cancelHandler($event)"
+    (save)="saveHandler($event)"
+    (remove)="removeHandler($event)"
+    (add)="addHandler($event)"
+    [pageSize]="gridState.take"
+    [skip]="gridState.skip"
+    [sort]="gridState.sort"
+    [pageable]="true"
+    [sortable]="true">
+
+    <ng-template kendoGridToolbarTemplate>
+        <button kendoGridAddCommand>Agregar</button>
+    </ng-template>
+
+    <kendo-grid-column *ngFor="let col of gridDataColumn" field="{{ col.header }}" editor="{{ col.dataType }}" title="{{ col.header }}" format="{{ col.format }}"></kendo-grid-column>
+
+    <kendo-grid-command-column title="Acciones">
+        <ng-template kendoGridCellTemplate let-isNew="isNew">
+            <button kendoGridEditCommand [primary]="true">Editar</button>
+            <button kendoGridRemoveCommand>Eliminar</button>
+            <button kendoGridSaveCommand [disabled]="formGroup?.invalid">{{ isNew ? 'Agregar' : 'Editar' }}</button>
+            <button kendoGridCancelCommand>{{ isNew ? 'Descartar' : 'Cancelar' }}</button>
+        </ng-template>
+    </kendo-grid-command-column>
+</kendo-grid>

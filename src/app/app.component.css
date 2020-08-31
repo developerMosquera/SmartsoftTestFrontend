@@ -1,0 +1,17 @@
+.content-test {
+    overflow: hidden;
+}
+
+aside {
+    display: inline-block;
+}
+
+.content-test .content-select {
+    width: 19%;
+    float: left;
+}
+
+.content-test .content-grid {
+    width: 80%;
+    float: right;
+}
